@@ -2,6 +2,7 @@
 
 <html>
   <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
@@ -9,6 +10,7 @@
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIBD7DN-xlxdaIPBGKwx2Q87yDPOATPLk&sensor=true"></script>
 
+    <script type="text/javascript" src="js/pages/welcome_page.js"></script>
     <script type="text/javascript" src="js/pages/game_page.js"></script>
     <script type="text/javascript" src="js/pages/map_page.js"></script>
     <script type="text/javascript" src="js/pages/signup_page.js"></script>
@@ -40,6 +42,27 @@
     </script>
   </head>
   <body>
+    <div data-role="page" id="welcome-page">
+      <div data-role="header">
+        <h1>Welcome!</h1>
+      </div>
+
+      <div data-role="content">
+        <p>Welcome to the HTML5 demo application / game developed for presentation purposes by <a href="http://mrcalonso.com" target="blank">Carlos Alonso</a>.</p>
+        <p>In this application you'll see:</p>
+        <ol>
+          <li>A basic but hopefully funny HTML5 Canvas based famous game</li>
+          <li>A basic AJAX form for submitting your score to the world ranking</li>
+          <li>A websockets based, realtime updating, two-tabs page that will show you the leaderboard and the locations from where people has played.</li>
+        </ol>
+        <input id="start_button" type="button" value="Start!" />
+      </div>
+
+      <div data-role="footer" data-position="fixed">
+        <p align="center"> <a href="http://mrcalonso.com" target="blank">mrcalonso.com</a> &copy; Carlos Alonso 2014</p>
+      </div>
+    </div>
+
     <div data-role="page" id="game-page">
       <div data-role="header">
         <h1>Enjoy!</h1>
@@ -47,6 +70,10 @@
 
       <div data-role="content">
         <canvas id="game-canvas"></canvas>
+      </div>
+
+      <div data-role="footer" data-position="fixed">
+        <p align="center"> <a href="http://mrcalonso.com" target="blank">mrcalonso.com</a> &copy; Carlos Alonso 2014</p>
       </div>
     </div>
 
@@ -62,26 +89,35 @@
         <input type="text" id="user_score" disabled/>
         <input id="signup-button" type="button" value="Locating you. Please wait..." disabled />
       </div>
+
+      <div data-role="footer" data-position="fixed">
+        <p align="center"> <a href="http://mrcalonso.com" target="blank">mrcalonso.com</a> &copy; Carlos Alonso 2014</p>
+      </div>
     </div>
 
     <div data-role="page" id="map-page" data-title="Leaderboards">
-      <div data-role="tabs" id="tabs">
-        <div data-role="navbar">
-          <ul>
-            <li><a href="#map" data-ajax="false">Map</a></li>
-            <li><a href="#leaderboard" data-ajax="false">Leaderboard</a></li>
-          </ul>
-        </div>
-        <div id="map" class="ui-body-d ui-content">
-          <div id="map-canvas"></div>
-        </div>
-        <div id="leaderboard">
-          <ol data-role="listview" data-inset="true">
+      <div data-role="content">
+        <div data-role="tabs" id="tabs">
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#map" data-ajax="false">Map</a></li>
+              <li><a href="#leaderboard" data-ajax="false">Leaderboard</a></li>
+            </ul>
+          </div>
+          <div id="map" class="ui-body-d ui-content">
+            <div id="map-canvas"></div>
+          </div>
+          <div id="leaderboard">
+            <ol data-role="listview" data-inset="true">
 
-          </ol>
+            </ol>
+          </div>
         </div>
       </div>
-    </div>  
 
+      <div data-role="footer" data-position="fixed">
+        <p align="center"> <a href="http://mrcalonso.com" target="blank">mrcalonso.com</a> &copy; Carlos Alonso 2014</p>
+      </div>
+    </div>  
   </body>
 </html>

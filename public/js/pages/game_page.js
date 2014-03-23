@@ -6,7 +6,7 @@ $(document).on("pagechange", function(event, data) {
 
     var $canvas = $("#game-canvas").
       attr('width', $container.width()).
-      attr('height', $(window).height() - 2 * $header.height());
+      attr('height', $(window).height() - 3 * $header.height());
 
     var game = new GAME.Game($canvas[0], function(score) {
       user_info.score = score;

@@ -7,7 +7,7 @@ $(document).on("pagechange", function(evt, data) {
     };
 
     var $header = $("#map-page div:jqmData(role=navbar)");
-    $("#map-canvas").height($(window).height() - 2 * $header.height());
+    $("#map-canvas").height($(window).height() - 3 * $header.height());
     var map = new google.maps.Map($("#map-canvas")[0], mapOptions);
 
     var scheme   = "ws://";
