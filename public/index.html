@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIBD7DN-xlxdaIPBGKwx2Q87yDPOATPLk&sensor=true"></script>
+
+    <script type="text/javascript" src="js/pages/game_page.js"></script>
+    <script type="text/javascript" src="js/pages/map_page.js"></script>
+    <script type="text/javascript" src="js/pages/signup_page.js"></script>
+    <script type="text/javascript" src="js/game/game.js"></script>
+    <script type="text/javascript" src="js/game/player.js"></script>
+    <script type="text/javascript" src="js/game/spawn_controller.js"></script>
+    <script type="text/javascript" src="js/game/enemy.js"></script>
+    <script type="text/javascript" src="js/game/bullet.js"></script>
+    <script type="text/javascript" src="js/game/bomb.js"></script>
+    <script type="text/javascript" src="js/game/score_board.js"></script>
+    <script type="text/javascript">
+
+      var user_info = {
+        id: null,
+        name: null,
+        longitude: null,
+        latitude: null,
+        score: null
+      };
+
+      $(document).on("mobileinit", function(){
+        //apply overrides here
+      });
+
+      $(document).bind('touchmove', function(event) {
+        event.preventDefault();
+      });
+    </script>
+  </head>
+  <body>
+    <div data-role="page" id="game-page">
+      <div data-role="header">
+        <h1>Enjoy!</h1>
+      </div>
+
+      <div data-role="content">
+        <canvas id="game-canvas"></canvas>
+      </div>
+    </div>
+
+    <div data-role="page" id="signup-page">
+      <div data-role="header">
+        <h1>Submit Score</h1>
+      </div>
+
+      <div data-role="content"> 
+        <label for="user_name">Name:</label>
+        <input type="text" id="user_name" placeholder="Input your name here..." />
+        <label for="user_name">Score:</label>
+        <input type="text" id="user_score" disabled/>
+        <input id="signup-button" type="button" value="Locating you..." disabled />
+      </div>
+    </div>
+
+    <div data-role="page" id="map-page">
+      <div data-role="header">
+        <h1>Map View</h1>
+      </div> 
+
+      <div data-role="content">
+        <div id="map-canvas" />
+      </div>
+    </div>
+  </body>
+</html>

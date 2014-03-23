@@ -1,0 +1,20 @@
+defaults: &defaults
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: calonso
+  password: root
+  database: interlat_demo
+
+development:
+  host: localhost
+  <<: *defaults
+
+test:
+  database: interlat_demo_test
+  host: localhost
+  <<: *defaults
+
+production:
+  host: localhost
+  <<: *defaults
