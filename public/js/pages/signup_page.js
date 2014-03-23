@@ -6,7 +6,7 @@ $(document).on("pageinit", "#signup-page", function(event) {
     user_info.name = $("#user_name").val().trim();
 
     $.ajax({
-      url: "/users/",
+      url: "/users",
       accepts: "application/json",
       beforeSend: function(jqXhr, settings) {
         if (user_info.name.length == 0) {

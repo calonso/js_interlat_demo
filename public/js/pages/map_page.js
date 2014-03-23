@@ -6,7 +6,7 @@ $(document).on("pagechange", function(evt, data) {
       zoom: 14
     };
 
-    var $header = $("#map-page div:jqmData(role=header)");
+    var $header = $("#map-page div:jqmData(role=navbar)");
     $("#map-canvas").height($(window).height() - 2 * $header.height());
     var map = new google.maps.Map($("#map-canvas")[0], mapOptions);
 
@@ -40,12 +40,19 @@ $(document).on("pagechange", function(evt, data) {
         } else {
           bounds = new google.maps.LatLngBounds(latlng, latlng);
         }
-        markers.push(new google.maps.Marker ({
+
+        var mk_options = {
           map: map,
           animation: google.maps.Animation.DROP,
           position: latlng,
           title: marker.name
-        }));
+        }
+
+        if (marker.id == user_info.id) {
+          mk_options['icon'] = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
+        }
+        
+        markers.push(new google.maps.Marker (mk_options));
       }
       map.fitBounds(bounds);
       $board.listview("refresh");
