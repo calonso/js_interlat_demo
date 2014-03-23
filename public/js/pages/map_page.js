@@ -19,6 +19,9 @@ $(document).on("pagechange", function(evt, data) {
     }
 
     ws.onmessage = function(message) {
+      var $board = $("#leaderboard ol:jqmData(role=listview)");
+      $board.empty();
+
       for (var i = 0 ; i < markers.length ;  ++i) {
         var marker = markers[i];
         marker.setMap(null);
@@ -26,12 +29,12 @@ $(document).on("pagechange", function(evt, data) {
       markers = [];
 
       var markers_data = JSON.parse(message.data);
-      var off = 0;
       var bounds;
       for (var i = 0 ; i < markers_data.length ; ++i ) {
         var marker = markers_data[i];
-        off += 0.0001;
-        var latlng = new google.maps.LatLng(marker.latitude + off, marker.longitude + off);
+        $board.append($('<li></li>').text(marker.name + ' - ' + marker.score));
+
+        var latlng = new google.maps.LatLng(marker.latitude, marker.longitude);
         if (bounds) {
           bounds.extend(latlng);
         } else {
@@ -45,6 +48,7 @@ $(document).on("pagechange", function(evt, data) {
         }));
       }
       map.fitBounds(bounds);
+      $board.listview("refresh");
     };
   }
 });

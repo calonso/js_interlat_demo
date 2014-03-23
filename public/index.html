@@ -36,6 +36,7 @@
       $(document).bind('touchmove', function(event) {
         event.preventDefault();
       });
+
     </script>
   </head>
   <body>
@@ -59,18 +60,32 @@
         <input type="text" id="user_name" placeholder="Input your name here..." />
         <label for="user_name">Score:</label>
         <input type="text" id="user_score" disabled/>
-        <input id="signup-button" type="button" value="Locating you..." disabled />
+        <input id="signup-button" type="button" value="Locating you. Please wait..." disabled />
       </div>
     </div>
 
     <div data-role="page" id="map-page">
       <div data-role="header">
-        <h1>Map View</h1>
-      </div> 
-
-      <div data-role="content">
-        <div id="map-canvas" />
+        <h1>Map</h1>
       </div>
-    </div>
+
+      <div data-role="tabs" id="tabs">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#map" data-ajax="false">Map</a></li>
+            <li><a href="#leaderboard" data-ajax="false">Leaderboard</a></li>
+          </ul>
+        </div>
+        <div id="map" class="ui-body-d ui-content">
+          <div id="map-canvas"></div>
+        </div>
+        <div id="leaderboard">
+          <ol data-role="listview" data-inset="true">
+
+          </ol>
+        </div>
+      </div>
+    </div>  
+
   </body>
 </html>

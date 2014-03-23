@@ -20,7 +20,7 @@ $(document).on("pageinit", "#signup-page", function(event) {
         }
       },
       content_type: "application/json",
-      data: {user: {name: user_info.name, longitude: user_info.longitude, latitude: user_info.latitude}},
+      data: {user: {name: user_info.name, longitude: user_info.longitude, latitude: user_info.latitude, score: user_info.score}},
       error: function(jqXhr, textStatus, errorThrown) {
         alert(jqXhr.responseText);
       },

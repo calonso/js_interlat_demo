@@ -15,6 +15,7 @@ module Interlat
           requires :name, type: String, desc: "New user's name"
           requires :latitude, type: Float, desc: "New user's current latitude"
           requires :longitude, type: Float, desc: "New user's current longitude"
+          requires :score, type: Integer, desc: "New user's score"
         end
       end
       post '/' do
