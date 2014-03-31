@@ -1,6 +1,15 @@
 
 $(document).on("pagechange", function(event, data) {
   if (data.toPage.attr('id') === 'game-page') {
+
+    $(document).bind('touchmove', function(event) {
+      event.preventDefault();
+    });
+
+    $('#game-page').on("pagehide", function(event) {
+      $(document).unbind('touchmove');
+    });
+
     var $header = $("#game-page div:jqmData(role=header)");
     var $container = $("#game-page div:jqmData(role=content)");
 
